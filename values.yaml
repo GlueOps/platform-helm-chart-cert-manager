@@ -1,0 +1,10 @@
+# Default values for glueops-cert-manager.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+cert-manager:
+  installCRDs: false
+  cloudflare_api_token: ""
+  zerossl_eab_hmac_key: ""
+  zerossl_eab_kid: ""
+
