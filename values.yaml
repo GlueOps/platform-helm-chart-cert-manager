@@ -4,7 +4,6 @@
 
 cert-manager:
   installCRDs: false
-  cloudflare_api_token: ""
   zerossl_eab_hmac_key: ""
   zerossl_eab_kid: ""
 
