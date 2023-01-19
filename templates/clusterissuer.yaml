@@ -20,7 +20,7 @@ spec:
     solvers:
     - http01:
         ingress:
-          class: "" # use all ingress classes
+          class: "external-ingress-nginx" # use all ingress classes
 ---
 apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
