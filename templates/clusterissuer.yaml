@@ -16,13 +16,12 @@ spec:
       name: zerossl-prod
        # Enable the HTTP-01 challenge provider
     solvers:
-    # - http01:
-    #     ingress:
-    #       class: "external-ingress-nginx" # use all ingress classes
+    - http01:
+        ingress:
+          class: "external-ingress-nginx" # use all ingress classes
     - selector:
         dnsZones:
-        - 'glueopshosted.com'
-        - 'glueopshosted.rocks'
+        - {{ index (index .Values "cert-manager") "captain_domain" }}
       dns01:
         # Valid values are None and Follow
         route53:
