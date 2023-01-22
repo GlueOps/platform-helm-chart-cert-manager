@@ -21,7 +21,8 @@ spec:
     #       class: "external-ingress-nginx" # use all ingress classes
     - selector:
         dnsZones:
-        - '*.glueopshosted.*'
+        - 'glueopshosted.com'
+        - 'glueopshosted.rocks'
       dns01:
         # Valid values are None and Follow
         route53:
