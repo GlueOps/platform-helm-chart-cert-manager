@@ -4,6 +4,9 @@
 
 cert-manager:
   installCRDs: false
-  zerossl_eab_hmac_key: ""
-  zerossl_eab_kid: ""
+  zerossl_eab_hmac_key: nil
+  zerossl_eab_kid: nil
+  aws_region: nil
+  aws_accessKey: nil
+  aws_secretKey: nil
 
