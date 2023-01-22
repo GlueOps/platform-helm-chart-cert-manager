@@ -19,7 +19,10 @@ spec:
     - http01:
         ingress:
           class: "external-ingress-nginx" # use all ingress classes
-    - dns01:
+    - selector:
+        dnsZones:
+        - '*.glueopshosted.*'
+      dns01:
         # Valid values are None and Follow
         route53:
           region: {{ index (index .Values "cert-manager") "aws_region" }}
