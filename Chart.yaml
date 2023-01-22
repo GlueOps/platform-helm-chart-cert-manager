@@ -2,7 +2,7 @@ apiVersion: v2
 appVersion: v0.1.0
 description: GlueOps Helm Chart for cert-manager with sensible defaults. This chart also expects CRD's to be installed using another method
 name: glueops-cert-manager
-version: 0.2.0-venkata-9
+version: 0.2.0
 dependencies:
   - name: cert-manager
     version: v1.10.1
