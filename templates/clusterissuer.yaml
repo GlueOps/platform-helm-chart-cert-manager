@@ -22,7 +22,7 @@ spec:
     - dns01:
         # Valid values are None and Follow
         route53:
-          region: 
+          region: {{ index (index .Values "cert-manager") "aws_region" }}
           accessKeyID: {{ index (index .Values "cert-manager") "aws_accessKey" }}
           secretAccessKeySecretRef:
             name: route53-credentials-secret
