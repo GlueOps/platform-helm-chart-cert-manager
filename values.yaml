@@ -4,7 +4,10 @@
 
 cert-manager:
   installCRDs: false
-  cloudflare_api_token: ""
-  zerossl_eab_hmac_key: ""
-  zerossl_eab_kid: ""
+  zerossl_eab_hmac_key: nil
+  zerossl_eab_kid: nil
+  aws_region: nil
+  aws_accessKey: nil
+  aws_secretKey: nil
+  captain_domain: nil
 
