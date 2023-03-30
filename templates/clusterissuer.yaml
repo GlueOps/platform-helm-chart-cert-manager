@@ -1,24 +1,16 @@
 apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
 metadata:
-  name: glueops-cert-zerossl-prod
+  name: letsencrypt
 spec:
   acme:
-    # The ACME server URL
-    server: https://acme.zerossl.com/v2/DV90
-    externalAccountBinding:
-      keyID: {{ index (index .Values "cert-manager") "zerossl_eab_kid" }}
-      keySecretRef:
-        name: zerossl-eab-hmac-key
-        key: secret
-    # Name of a secret used to store the ACME account private key
+    server: https://acme-v02.api.letsencrypt.org/directory
     privateKeySecretRef:
-      name: zerossl-prod
-       # Enable the HTTP-01 challenge provider
+      name: letsencrypt-acme-privatekey
     solvers:
     - http01:
         ingress:
-          class: "external-ingress-nginx" # use all ingress classes
+          class: "external-ingress-nginx"
     - selector:
         dnsZones:
         - {{ index (index .Values "cert-manager") "captain_domain" }}
