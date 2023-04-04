@@ -10,4 +10,4 @@ spec:
     group: cert-manager.io
     kind: ClusterIssuer
     name: letsencrypt
-  secretName: ingress-nginx-default-certs
+  secretName: {{ index (index .Values "cert-manager") "name_of_default_certificate" }}
