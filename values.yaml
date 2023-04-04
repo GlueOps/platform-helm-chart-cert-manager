@@ -8,4 +8,5 @@ cert-manager:
   aws_accessKey: nil
   aws_secretKey: nil
   captain_domain: nil
+  name_of_default_certificate: nil
 

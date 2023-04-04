@@ -1,7 +1,7 @@
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: ingress-nginx-default-certs
+  name: {{ index (index .Values "cert-manager") "name_of_default_certificate" }}
 spec:
   dnsNames:
   - '*.apps.{{ index (index .Values "cert-manager") "captain_domain" }}'
