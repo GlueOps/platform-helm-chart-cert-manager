@@ -2,9 +2,9 @@ apiVersion: v2
 appVersion: v0.1.0
 description: GlueOps Helm Chart for cert-manager with sensible defaults. This chart also expects CRD's to be installed using another method
 name: glueops-cert-manager
-version: 0.7.0
+version: 0.7.1
 dependencies:
   - name: cert-manager
-    version: v1.11.1
+    version: v1.11.2
     repository: https://charts.jetstack.io
 
