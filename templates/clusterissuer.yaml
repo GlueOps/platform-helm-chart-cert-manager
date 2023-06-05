@@ -10,7 +10,7 @@ spec:
     solvers:
     - http01:
         ingress:
-          class: "external-ingress-nginx"
+          class: "public"
     - selector:
         dnsZones:
         - {{ index (index .Values "cert-manager") "captain_domain" }}
