@@ -1,6 +1,6 @@
 # glueops-cert-manager
 
-![Version: 0.7.2](https://img.shields.io/badge/Version-0.7.2-informational?style=flat-square) ![AppVersion: v0.1.0](https://img.shields.io/badge/AppVersion-v0.1.0-informational?style=flat-square)
+![Version: 0.8.0-alpha1](https://img.shields.io/badge/Version-0.8.0--alpha1-informational?style=flat-square) ![AppVersion: v0.1.0](https://img.shields.io/badge/AppVersion-v0.1.0-informational?style=flat-square)
 
 GlueOps Helm Chart for cert-manager with sensible defaults. This chart also expects CRD's to be installed using another method
 
@@ -8,7 +8,7 @@ GlueOps Helm Chart for cert-manager with sensible defaults. This chart also expe
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.jetstack.io | cert-manager | v1.11.2 |
+| https://charts.jetstack.io | cert-manager | v1.12.1 |
 
 ## Values
 
