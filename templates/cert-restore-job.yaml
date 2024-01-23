@@ -1,0 +1,63 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  annotations:
+    name: glueops-tls-cert-restore-tls-cert-restore
+    namespace: glueops-tls-cert-restore
+    argocd.argoproj.io/hook: PreSync
+spec:
+  backoffLimit: 6
+  completionMode: NonIndexed
+  completions: 1
+  parallelism: 1
+  suspend: false
+  template:
+    metadata:
+      annotations:
+        helm.sh/chart: app-0.4.0
+    spec:
+      containers:
+      - command:
+        - python
+        - -u
+        - /app/cert-backup-restore/main.py
+        - --restore
+        env:
+        - name: AWS_ACCESS_KEY_ID
+          value: dummy
+        - name: AWS_SECRET_ACCESS_KEY
+          value: dummy
+        - name: AWS_DEFAULT_REGION
+          value: us-west-2
+        - name: CAPTAIN_DOMAIN
+          value: nonprod.proximacentaurib.onglueops.rocks
+        - name: BUCKET_NAME
+          value: glueops-tenant-proximacentaurib-primary
+        - name: BACKUP_PREFIX
+          value: tls-cert-backups
+        image: ghcr.io/glueops/certs-backup-restore:main
+        imagePullPolicy: IfNotPresent
+        name: glueops-tls-cert-restore
+        ports:
+        - containerPort: 8080
+          name: http
+          protocol: TCP
+        resources:
+          limits:
+            cpu: 100m
+            memory: 128Mi
+          requests:
+            cpu: 100m
+            memory: 128Mi
+      nodeSelector:
+        glueops.dev/role: glueops-platform
+      restartPolicy: Never
+      schedulerName: default-scheduler
+      serviceAccount: tls-cert-restore
+      serviceAccountName: tls-cert-restore
+      terminationGracePeriodSeconds: 60
+      tolerations:
+      - effect: NoSchedule
+        key: glueops.dev/role
+        operator: Equal
+        value: glueops-platform
