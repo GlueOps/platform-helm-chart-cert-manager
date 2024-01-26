@@ -3,7 +3,7 @@ kind: Job
 metadata:
   annotations:
     name: glueops-tls-cert-restore-tls-cert-restore
-    namespace: glueops-tls-cert-restore
+    namespace: glueops-core-cert-manager
     argocd.argoproj.io/hook: PreSync
 spec:
   backoffLimit: 6
