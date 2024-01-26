@@ -11,4 +11,4 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: tls-cert-restore
-  namespace: glueops-tls-cert-restore
+  namespace: glueops-core-cert-manager
