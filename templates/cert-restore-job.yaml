@@ -24,17 +24,17 @@ spec:
         - --restore
         env:
         - name: AWS_ACCESS_KEY_ID
-          value: "{{ .Values.cert-restore.aws_accessKey }}"
+          value: {{ index (index .Values "cert-restore") "aws_accessKey" }}
         - name: AWS_SECRET_ACCESS_KEY
-          value: "{{ .Values.cert-restore.aws_secretKey }}"
+          value: {{ index (index .Values "cert-restore") "aws_secretKey" }}
         - name: AWS_DEFAULT_REGION
-          value: "{{ .Values.cert-restore.aws_default_region }}"
+          value: {{ index (index .Values "cert-restore") "aws_region" }}"
         - name: CAPTAIN_DOMAIN
-          value: "{{ .Values.cert-restore.captain_domain }}"
+          value: {{ index (index .Values "cert-restore") "captain_domain" }}
         - name: BUCKET_NAME
-          value: "{{ .Values.cert-restore.bucket_name }}"
+          value: {{ index (index .Values "cert-restore") "bucket_name" }}
         - name: BACKUP_PREFIX
-          value: "{{ .Values.cert-restore.backup_prefix }}"
+          value: {{ index (index .Values "cert-restore") "backup_prefix" }}
         image: ghcr.io/glueops/certs-backup-restore:main
         imagePullPolicy: IfNotPresent
         name: glueops-tls-cert-restore
