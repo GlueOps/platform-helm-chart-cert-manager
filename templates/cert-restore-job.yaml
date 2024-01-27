@@ -2,7 +2,7 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   annotations:
-    name: glueops-tls-cert-restore-tls-cert-restore
+    name: glueops-tls-cert-restore
     namespace: glueops-core-cert-manager
     argocd.argoproj.io/hook: PreSync
 spec:
@@ -24,24 +24,20 @@ spec:
         - --restore
         env:
         - name: AWS_ACCESS_KEY_ID
-          value: dummy
+          value: "{{ .Values.cert-restore.aws_accessKey }}"
         - name: AWS_SECRET_ACCESS_KEY
-          value: dummy
+          value: "{{ .Values.cert-restore.aws_secretKey }}"
         - name: AWS_DEFAULT_REGION
-          value: us-west-2
+          value: "{{ .Values.cert-restore.aws_default_region }}"
         - name: CAPTAIN_DOMAIN
-          value: nonprod.proximacentaurib.onglueops.rocks
+          value: "{{ .Values.cert-restore.captain_domain }}"
         - name: BUCKET_NAME
-          value: glueops-tenant-proximacentaurib-primary
+          value: "{{ .Values.cert-restore.bucket_name }}"
         - name: BACKUP_PREFIX
-          value: tls-cert-backups
+          value: "{{ .Values.cert-restore.backup_prefix }}"
         image: ghcr.io/glueops/certs-backup-restore:main
         imagePullPolicy: IfNotPresent
         name: glueops-tls-cert-restore
-        ports:
-        - containerPort: 8080
-          name: http
-          protocol: TCP
         resources:
           limits:
             cpu: 100m
