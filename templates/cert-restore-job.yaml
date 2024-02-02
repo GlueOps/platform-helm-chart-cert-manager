@@ -5,6 +5,7 @@ metadata:
     name: glueops-tls-cert-restore
     namespace: glueops-core-cert-manager
     argocd.argoproj.io/hook: PreSync
+    argocd.argoproj.io/sync-wave: "-5"
 spec:
   backoffLimit: 6
   completionMode: NonIndexed
