@@ -5,3 +5,4 @@ metadata:
   namespace: glueops-core-cert-manager
   annotations: 
     argocd.argoproj.io/hook: PreSync
+    argocd.argoproj.io/sync-wave: "-8"
