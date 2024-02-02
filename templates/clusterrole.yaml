@@ -4,6 +4,7 @@ metadata:
   name: tls-cert-restore
   annotations:
     argocd.argoproj.io/hook: PreSync
+    argocd.argoproj.io/sync-wave: "-7"
 rules:
 - apiGroups:
   - ""
