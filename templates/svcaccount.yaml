@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: tls-cert-restore
+  namespace: glueops-core-cert-manager
+  annotations: 
+    argocd.argoproj.io/hook: PreSync
+    argocd.argoproj.io/sync-wave: "-8"
