@@ -37,7 +37,7 @@ spec:
           value: {{ index (index .Values "cert-restore") "backup_prefix" }}
         - name: EXCLUDE_NAMESPACES
           value: {{ index (index .Values "cert-restore") "exclude_namespaces" }}
-        image: ghcr.io/glueops/certs-backup-restore:v0.2.0
+        image: ghcr.io/glueops/certs-backup-restore:v0.3.0@sha256:5aa2c4930bcdd7d35b61872d2d82cf3db92586e9ea1036c8194f2b75b10946a1
         imagePullPolicy: IfNotPresent
         name: glueops-tls-cert-restore
         resources:
