@@ -4,5 +4,7 @@ metadata:
   name: tls-cert-restore
   namespace: glueops-core-cert-manager
   annotations: 
-    argocd.argoproj.io/hook: PreSync
-    argocd.argoproj.io/sync-wave: "-8"
+    # argocd.argoproj.io/hook: PreSync
+    # argocd.argoproj.io/sync-wave: "-8"
+    helm.sh/hook: pre-install
+    helm.sh/hook-weight: "-8"
