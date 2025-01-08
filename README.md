@@ -1,6 +1,6 @@
 # glueops-cert-manager
 
-![Version: 0.16.0-rc1](https://img.shields.io/badge/Version-0.16.0--rc1-informational?style=flat-square) ![AppVersion: v0.1.0](https://img.shields.io/badge/AppVersion-v0.1.0-informational?style=flat-square)
+![Version: 0.16.3-rc1](https://img.shields.io/badge/Version-0.16.3--rc1-informational?style=flat-square) ![AppVersion: v0.1.0](https://img.shields.io/badge/AppVersion-v0.1.0-informational?style=flat-square)
 
 GlueOps Helm Chart for cert-manager with sensible defaults. This chart also expects CRDs to be installed using another method
 
