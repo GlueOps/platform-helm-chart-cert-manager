@@ -1,63 +1,63 @@
-apiVersion: batch/v1
-kind: Job
-metadata:
-  annotations:
-    name: glueops-tls-cert-restore
-    namespace: glueops-core-cert-manager
-    # argocd.argoproj.io/hook: PreSync
-    helm.sh/hook: pre-install
-    helm.sh/hook-weight: "-2"
-spec:
-  backoffLimit: 6
-  completionMode: NonIndexed
-  completions: 1
-  parallelism: 1
-  suspend: false
-  template:
-    metadata:
-      annotations:
-        helm.sh/chart: app-0.4.0
-    spec:
-      containers:
-      - command:
-        - python
-        - -u
-        - /app/cert-backup-restore/main.py
-        - --restore
-        env:
-        - name: AWS_ACCESS_KEY_ID
-          value: {{ index (index .Values "cert-restore") "aws_accessKey" }}
-        - name: AWS_SECRET_ACCESS_KEY
-          value: {{ index (index .Values "cert-restore") "aws_secretKey" }}
-        - name: AWS_DEFAULT_REGION
-          value: {{ index (index .Values "cert-restore") "aws_default_region" }}
-        - name: CAPTAIN_DOMAIN
-          value: {{ index (index .Values "cert-restore") "captain_domain" }}
-        - name: BUCKET_NAME
-          value: {{ index (index .Values "cert-restore") "bucket_name" }}
-        - name: BACKUP_PREFIX
-          value: {{ index (index .Values "cert-restore") "backup_prefix" }}
-        - name: EXCLUDE_NAMESPACES
-          value: {{ index (index .Values "cert-restore") "exclude_namespaces" }}
-        image: ghcr.io/glueops/certs-backup-restore:v0.10.0@sha256:dbc6a7209ff2e92a0b9766fa61dc45bd6d4e124afdc236972327044c93858926
-        imagePullPolicy: IfNotPresent
-        name: glueops-tls-cert-restore
-        resources:
-          limits:
-            cpu: 100m
-            memory: 128Mi
-          requests:
-            cpu: 100m
-            memory: 128Mi
-      nodeSelector:
-        glueops.dev/role: glueops-platform
-      restartPolicy: Never
-      schedulerName: default-scheduler
-      serviceAccount: tls-cert-restore
-      serviceAccountName: tls-cert-restore
-      terminationGracePeriodSeconds: 60
-      tolerations:
-      - effect: NoSchedule
-        key: glueops.dev/role
-        operator: Equal
-        value: glueops-platform
+#  apiVersion: batch/v1
+# kind: Job
+# metadata:
+#   annotations:
+#     name: glueops-tls-cert-restore
+#     namespace: glueops-core-cert-manager
+#     # argocd.argoproj.io/hook: PreSync
+#     helm.sh/hook: pre-install
+#     helm.sh/hook-weight: "-2"
+# spec:
+#   backoffLimit: 6
+#   completionMode: NonIndexed
+#   completions: 1
+#   parallelism: 1
+#   suspend: false
+#   template:
+#     metadata:
+#       annotations:
+#         helm.sh/chart: app-0.4.0
+#     spec:
+#       containers:
+#       - command:
+#         - python
+#         - -u
+#         - /app/cert-backup-restore/main.py
+#         - --restore
+#         env:
+#         - name: AWS_ACCESS_KEY_ID
+#           value: {{ index (index .Values "cert-restore") "aws_accessKey" }}
+#         - name: AWS_SECRET_ACCESS_KEY
+#           value: {{ index (index .Values "cert-restore") "aws_secretKey" }}
+#         - name: AWS_DEFAULT_REGION
+#           value: {{ index (index .Values "cert-restore") "aws_default_region" }}
+#         - name: CAPTAIN_DOMAIN
+#           value: {{ index (index .Values "cert-restore") "captain_domain" }}
+#         - name: BUCKET_NAME
+#           value: {{ index (index .Values "cert-restore") "bucket_name" }}
+#         - name: BACKUP_PREFIX
+#           value: {{ index (index .Values "cert-restore") "backup_prefix" }}
+#         - name: EXCLUDE_NAMESPACES
+#           value: {{ index (index .Values "cert-restore") "exclude_namespaces" }}
+#         image: ghcr.io/glueops/certs-backup-restore:v0.10.0@sha256:dbc6a7209ff2e92a0b9766fa61dc45bd6d4e124afdc236972327044c93858926
+#         imagePullPolicy: IfNotPresent
+#         name: glueops-tls-cert-restore
+#         resources:
+#           limits:
+#             cpu: 100m
+#             memory: 128Mi
+#           requests:
+#             cpu: 100m
+#             memory: 128Mi
+#       nodeSelector:
+#         glueops.dev/role: glueops-platform
+#       restartPolicy: Never
+#       schedulerName: default-scheduler
+#       serviceAccount: tls-cert-restore
+#       serviceAccountName: tls-cert-restore
+#       terminationGracePeriodSeconds: 60
+#       tolerations:
+#       - effect: NoSchedule
+#         key: glueops.dev/role
+#         operator: Equal
+#         value: glueops-platform

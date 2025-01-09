@@ -12,3 +12,7 @@ cert-manager:
   webhook:
     hostNetwork: true
     securePort: 10750
+  commonAnnotations: {}
+     
+  
+    
