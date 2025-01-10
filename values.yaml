@@ -12,7 +12,5 @@ cert-manager:
   webhook:
     hostNetwork: true
     securePort: 10750
-  cainjector:
-    replicaCount: 1
-    extraArgs:
-      - --leader-elect=false
+    readinessProbe:
+      initialDelaySeconds: 120
