@@ -14,3 +14,5 @@ cert-manager:
     securePort: 10750
     readinessProbe:
       initialDelaySeconds: 120
+  crds:
+    enabled: true
