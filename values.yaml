@@ -12,3 +12,5 @@ cert-manager:
   webhook:
     hostNetwork: true
     securePort: 10750
+    readinessProbe:
+      initialDelaySeconds: 60
