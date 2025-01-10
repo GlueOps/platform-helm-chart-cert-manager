@@ -3,7 +3,6 @@
 # Declare variables to be passed into your templates.
 
 cert-manager:
-  installCRDs: false
   aws_region: nil
   aws_accessKey: nil
   aws_secretKey: nil
