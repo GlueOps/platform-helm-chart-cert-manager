@@ -17,9 +17,10 @@ GlueOps Helm Chart for cert-manager with sensible defaults. This chart also expe
 | cert-manager.aws_accessKey | string | `"nil"` |  |
 | cert-manager.aws_region | string | `"nil"` |  |
 | cert-manager.aws_secretKey | string | `"nil"` |  |
+| cert-manager.cainjector.extraArgs[0] | string | `"--leader-elect=false"` |  |
+| cert-manager.cainjector.replicaCount | int | `1` |  |
 | cert-manager.captain_domain | string | `"nil"` |  |
 | cert-manager.installCRDs | bool | `false` |  |
 | cert-manager.name_of_default_certificate | string | `"nil"` |  |
 | cert-manager.webhook.hostNetwork | bool | `true` |  |
-| cert-manager.webhook.readinessProbe.initialDelaySeconds | int | `60` |  |
 | cert-manager.webhook.securePort | int | `10750` |  |
