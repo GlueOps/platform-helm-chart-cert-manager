@@ -21,4 +21,5 @@ GlueOps Helm Chart for cert-manager with sensible defaults. This chart also expe
 | cert-manager.installCRDs | bool | `false` |  |
 | cert-manager.name_of_default_certificate | string | `"nil"` |  |
 | cert-manager.webhook.hostNetwork | bool | `true` |  |
+| cert-manager.webhook.readinessProbe.initialDelaySeconds | int | `60` |  |
 | cert-manager.webhook.securePort | int | `10750` |  |
