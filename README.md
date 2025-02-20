@@ -8,7 +8,7 @@ GlueOps Helm Chart for cert-manager with sensible defaults. This chart also expe
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.jetstack.io | cert-manager | v1.15.5 |
+| https://charts.jetstack.io | cert-manager | v1.16.4 |
 
 ## Values
 
