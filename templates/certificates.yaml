@@ -1,7 +1,7 @@
 apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
-  name: {{ index (index .Values "cert-manager") "name_of_default_certificate" }}
+  name: {{ .Values.cert_manager_glueops_specifics.name_of_default_certificate }}
   annotations:
     argocd.argoproj.io/sync-wave: "1"
 spec:
@@ -12,4 +12,4 @@ spec:
     group: cert-manager.io
     kind: ClusterIssuer
     name: letsencrypt
-  secretName: {{ index (index .Values "cert-manager") "name_of_default_certificate" }}
+  secretName: {{ .Values.cert_manager_glueops_specifics.name_of_default_certificate }}
