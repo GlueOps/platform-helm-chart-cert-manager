@@ -6,8 +6,8 @@ metadata:
     argocd.argoproj.io/sync-wave: "1"
 spec:
   dnsNames:
-  - '*.apps.{{ index (index .Values "cert-manager") "captain_domain" }}'
-  - '*.{{ index (index .Values "cert-manager") "captain_domain" }}'
+  - '*.apps.{{ .Values.cert_manager_glueops_specifics.captain_domain }}'
+  - '*.{{ .Values.cert_manager_glueops_specifics.captain_domain }}'
   issuerRef:
     group: cert-manager.io
     kind: ClusterIssuer
