@@ -2,12 +2,16 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
-cert-manager:
-  aws_region: nil
-  aws_accessKey: nil
-  aws_secretKey: nil
+
+cert_manager_glueops_specifics:
   captain_domain: nil
   name_of_default_certificate: nil
+  aws_accessKey: nil
+  aws_region: nil
+  aws_secretKey: nil
+  
+
+cert-manager:
   webhook:
     hostNetwork: true
     securePort: 10750
@@ -15,7 +19,7 @@ cert-manager:
       initialDelaySeconds: 120
   crds:
     enabled: true
-cert-restore:
+cert_restore:
   image: nil
   aws_accessKey: nil
   aws_secretKey: nil

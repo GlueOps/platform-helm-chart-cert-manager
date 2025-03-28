@@ -15,12 +15,12 @@ spec:
           ingressClassName: "public"
     - selector:
         dnsZones:
-        - {{ index (index .Values "cert-manager") "captain_domain" }}
+        - {{ .Values.cert_manager_glueops_specifics.captain_domain }}
       dns01:
         # Valid values are None and Follow
         route53:
-          region: {{ index (index .Values "cert-manager") "aws_region" }}
-          accessKeyID: {{ index (index .Values "cert-manager") "aws_accessKey" }}
+          region: {{ .Values.cert_manager_glueops_specifics.aws_region }}
+          accessKeyID: {{ .Values.cert_manager_glueops_specifics.aws_accessKey }}
           secretAccessKeySecretRef:
             name: route53-credentials-secret
             key: secret
