@@ -23,11 +23,3 @@ GlueOps Helm Chart for cert-manager with sensible defaults. This chart also expe
 | cert-manager.webhook.hostNetwork | bool | `true` |  |
 | cert-manager.webhook.readinessProbe.initialDelaySeconds | int | `120` |  |
 | cert-manager.webhook.securePort | int | `10750` |  |
-| cert-restore.aws_accessKey | string | `"nil"` |  |
-| cert-restore.aws_default_region | string | `"nil"` |  |
-| cert-restore.aws_secretKey | string | `"nil"` |  |
-| cert-restore.backup_prefix | string | `"nil"` |  |
-| cert-restore.bucket_name | string | `"nil"` |  |
-| cert-restore.captain_domain | string | `"nil"` |  |
-| cert-restore.exclude_namespaces | string | `"nil"` |  |
-| cert-restore.image | string | `"nil"` |  |
