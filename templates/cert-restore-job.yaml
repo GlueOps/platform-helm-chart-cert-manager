@@ -28,7 +28,7 @@ spec:
         - name: AWS_SECRET_ACCESS_KEY
           value: {{ .Values.cert_restore.aws_secretKey }}
         - name: AWS_DEFAULT_REGION
-          value:{{ .Values.cert_restore.aws_default_region }}
+          value: {{ .Values.cert_restore.aws_default_region }}
         - name: CAPTAIN_DOMAIN
           value: {{ .Values.cert_restore.captain_domain }}
         - name: BUCKET_NAME
