@@ -15,3 +15,12 @@ cert-manager:
       initialDelaySeconds: 120
   crds:
     enabled: true
+cert-restore:
+  image: nil
+  aws_accessKey: nil
+  aws_secretKey: nil
+  aws_default_region: nil
+  captain_domain: nil
+  bucket_name: nil
+  backup_prefix: nil
+  exclude_namespaces: nil
