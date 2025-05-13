@@ -31,3 +31,4 @@ GlueOps Helm Chart for cert-manager with sensible defaults. This chart also expe
 | cert_restore.captain_domain | string | `"nil"` |  |
 | cert_restore.exclude_namespaces | string | `"nil"` |  |
 | cert_restore.image | string | `"nil"` |  |
+| cert_restore.restore_this_backup | string | `"nil"` |  |
