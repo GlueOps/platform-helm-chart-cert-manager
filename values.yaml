@@ -27,4 +27,5 @@ cert_restore:
   captain_domain: nil
   bucket_name: nil
   backup_prefix: nil
+  restore_this_backup: nil
   exclude_namespaces: nil
