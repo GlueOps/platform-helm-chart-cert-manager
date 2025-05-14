@@ -35,6 +35,8 @@ spec:
           value: {{ .Values.cert_restore.bucket_name }}
         - name: BACKUP_PREFIX
           value: {{ .Values.cert_restore.backup_prefix }}
+        - name: RESTORE_THIS_BACKUP
+          value: {{ .Values.cert_restore.restore_this_backup }}
         - name: EXCLUDE_NAMESPACES
           value: {{ .Values.cert_restore.exclude_namespaces }}
         image: {{ .Values.cert_restore.image }}
